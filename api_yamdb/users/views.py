@@ -14,7 +14,7 @@ from django.core.mail import send_mail
 from rest_framework.pagination import PageNumberPagination
 from django.contrib.auth.tokens import default_token_generator
 from rest_framework_simplejwt.tokens import AccessToken
-from api_yamdb.settings import DEFOULT_FROM_EMAIL
+from api_yamdb.settings import DEFAULT_FROM_EMAIL
 
 
 class CreateViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
