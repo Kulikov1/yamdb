@@ -38,7 +38,7 @@ class UserCreateViewSet(CreateViewSet):
         send_mail(
             subject='Регистрация YamDB',
             message=f'Код подтверждения: {confirmation_code}',
-            from_email=DEFOULT_FROM_EMAIL,
+            from_email=DEFAULT_FROM_EMAIL,
             recipient_list=[address_to],
         )
         return Response(serializer.data, status=status.HTTP_200_OK,
