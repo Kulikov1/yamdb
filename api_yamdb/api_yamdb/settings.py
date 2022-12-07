@@ -5,12 +5,12 @@ from datetime import timedelta
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p&l%385148kslhtyn^##a1)ilz@4zqj=rq&agdol^##zgl9(vs'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['158.160.20.158', ]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -118,9 +118,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # E-mail
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
 DOMAIN_NAME = 'yamdb.ru'
-DEFOULT_FROM_EMAIL = f'admin@{DOMAIN_NAME}'
+DEFAULT_FROM_EMAIL = f'admin@{DOMAIN_NAME}'
 
 
 # Path of standart model User
